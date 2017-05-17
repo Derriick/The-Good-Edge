@@ -12,10 +12,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		@article = Article.new(params.require(:article).permit(:titre, :description, :prix))
-		@article.save
+		@article = Article.create(params.require(:article).permit(:titre, :description, :prix))
 
 		redirect_to @article
+
+		# @zombie = Zombie.create(zombie_params)
+		# redirect_to zombie_path(@zombie)
+
 	end
 
 	def edit
