@@ -15,13 +15,12 @@ class ArticlesController < ApplicationController
 		@article = Article.create(params.require(:article).permit(:titre, :description, :prix))
 
 		redirect_to @article
-
-		# @zombie = Zombie.create(zombie_params)
-		# redirect_to zombie_path(@zombie)
-
 	end
 
 	def edit
+		if session[:utilisateur_id] != @article.utilisateur.id
+			redirect_to(utilisateurs_path, notice: "Vous n'êtes pas autorisés à modifier ce profil")
+		end
 	end
 
 	def destroy
