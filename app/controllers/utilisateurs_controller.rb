@@ -11,5 +11,8 @@ class UtilisateursController < ApplicationController
 	end
 
 	def edit
+		if session[:utilisateur_id] != @utilisateur.id
+			redirect_to(utilisateurs_path, notice: "Vous n'êtes pas autorisés à modifier ce profil")
+		end
 	end
 end
