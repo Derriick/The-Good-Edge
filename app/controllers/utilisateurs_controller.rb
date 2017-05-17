@@ -4,8 +4,11 @@ class UtilisateursController < ApplicationController
 	end
 
 	def new
-		@utilisateur = Utilisateur.new(params.require(:nutilisateur).permit(:nom, :prenom, :promotion))
-		@utilisateur.save
+		@utilisateur = Utilisateur.new
+	end
+
+	def create
+		@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone))
 
 		redirect_to @utilisateur
 	end

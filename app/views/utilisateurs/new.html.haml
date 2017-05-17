@@ -1,2 +1,27 @@
 %h1 Utilisateurs#new
 %p Find me in app/views/utilisateurs/new.html.haml
+
+= bootstrap_form_for(@utilisateur, multipart: true) do |f|
+	%h3 Informations personnelles
+	.row
+		.col-md-6.col-xs-12
+			= f.text_field :nom, label: "Nom", placeholder: "Nom"
+		.col-md-6.col-xs-12
+			= f.text_field :prenom, label: "Prénom", placeholder: "Prénom"
+		.col-md-6.col-xs-12
+			= f.number_field :promotion, label: "Promotion", placeholder: "2017"
+		.col-md-6.col-xs-12
+			= f.text_field :email, label: "Email", placeholder: "mail@example.com"
+		.col-md-6.col-xs-12
+			= f.text_field :telephone, label: "Téléphone"
+		.col-md-6.col-xs-12
+			%label Avatar
+			.input-group
+				%span.input-group-btn
+					%span.btn.btn-primary.btn-file
+						Choisir un fichier
+						= f.file_field :avatar, hide_label: true
+				%input.form-control{:readonly => "readonly", :type => "text", :placeholder => "Image de profil"}
+			%br
+		%p.text-center
+			= f.submit "Créer le compte"
