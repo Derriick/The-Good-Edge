@@ -1,10 +1,15 @@
 class UtilisateursController < ApplicationController
-  def show
-  end
+	def show
+		@utilisateur = Utilisateur.find(params[:id])
+	end
 
-  def new
-  end
+	def new
+		@utilisateur = Utilisateur.new(params.require(:nutilisateur).permit(:nom, :prenom, :promotion))
+		@utilisateur.save
 
-  def edit
-  end
+		redirect_to @utilisateur
+	end
+
+	def edit
+	end
 end

@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
-  get 'articles/show'
+	resources :utilisateurs
+	resources :articles
 
-  get 'articles/index'
+	# get 'articles/show'
 
-  get 'articles/new'
+	# get 'articles/index'
 
-  get 'articles/edit'
+	# get 'articles/new'
 
-  get 'articles/destroy'
+	# get 'articles/edit'
 
-  get 'utilisateurs/show'
+	# get 'articles/destroy'
 
-  get 'utilisateurs/new'
+	# get 'utilisateurs/show'
 
-  get 'utilisateurs/edit'
+	# get 'utilisateurs/new'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	# get 'utilisateurs/edit'
+
+	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

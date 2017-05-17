@@ -1,16 +1,26 @@
 class ArticlesController < ApplicationController
-  def show
-  end
+	def index
+		@articles = Article.all
+	end
 
-  def index
-  end
+	def show
+		@article = Article.find(params[:id])
+	end
 
-  def new
-  end
+	def new
+		@article = Article.new
+	end
 
-  def edit
-  end
+	def create
+		@article = Article.new(params.require(:article).permit(:titre, :description, :prix))
+		@article.save
 
-  def destroy
-  end
+		redirect_to @article
+	end
+
+	def edit
+	end
+
+	def destroy
+	end
 end
