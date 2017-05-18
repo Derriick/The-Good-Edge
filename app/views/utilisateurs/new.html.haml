@@ -11,9 +11,9 @@
 		.col-md-6.col-xs-12
 			= f.number_field :promotion, label: "Promotion", placeholder: "2017"
 		.col-md-6.col-xs-12
-			= f.text_field :email, label: "Email", placeholder: "mail@example.com"
+			= f.email_field :email, label: "Email", placeholder: "mail@example.com"
 		.col-md-6.col-xs-12
-			= f.text_field :telephone, label: "Téléphone"
+			= f.text_field :telephone, label: "Téléphone", type: "tel"
 		.col-md-6.col-xs-12
 			%label Avatar
 			.input-group

@@ -1,7 +1,7 @@
 !!! 5
 %html
 	%head
-		%title RoR
+		%title The Good Edge
 		= csrf_meta_tags
 
 		= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
@@ -16,12 +16,18 @@
 			.container-fluid
 				.navbar-header
 					%a.navbar-brand{href: "/"}
-						Accueil
+						The Good Edge
+				.navbar-collapse.collapse
 					%a.navbar-brand{href: "/articles"}
 						Articles
 					%a.navbar-brand{href: "/articles/new"}
 						Nouvel article
 					%a.navbar-brand{href: "/utilisateurs/new"}
 						Nouvel utilisateur
+					= form_for(:sessions, multipart: true, html: {class: "navbar_form navbar-right"}) do |f|
+						= f.email_field :email, placeholder: "Votre email"
+						= f.password_field :password, placeholder: "Votre mot de passe"
+						= f.submit "Connexion"
+
 		.container
 			= yield
