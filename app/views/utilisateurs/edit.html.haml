@@ -2,3 +2,28 @@
 %p ind me in app/views/utilisateurs/edit.html.haml
 
 %p vous etes bien l'utilisateur #{@utilisateur.id}
+
+= bootstrap_form_for(@utilisateur, multipart: true) do |f|
+	%h3 Informations personnelles
+	.row
+		.col-md-6.col-xs-12
+			= f.text_field :nom, label: "Nom", placeholder: "Nom", content: @utilisateur.nom
+		.col-md-6.col-xs-12
+			= f.text_field :prenom, label: "Prénom", placeholder: "Prénom", content: @utilisateur.prenom
+		.col-md-6.col-xs-12
+			= f.number_field :promotion, label: "Promotion", placeholder: "2017", content: @utilisateur.promotion
+		.col-md-6.col-xs-12
+			= f.email_field :email, label: "Email", placeholder: "mail@example.com", content: @utilisateur.email
+		.col-md-6.col-xs-12
+			= f.text_field :telephone, label: "Téléphone", type: "tel", content: @utilisateur.telephone
+		.col-md-6.col-xs-12
+			%label Avatar
+			.input-group
+				%span.input-group-btn
+					%span.btn.btn-primary.btn-file
+						Choisir un fichier
+						= f.file_field :avatar, hide_label: true
+				%input.form-control{:readonly => "readonly", :type => "text", :placeholder => "Image de profil"}
+			%br
+		%p.text-center
+			= f.submit "Enregistrer les changements"
