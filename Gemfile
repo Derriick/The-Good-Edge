@@ -60,3 +60,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml', '~> 5.0.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap_form', '~> 2.7.0'
+gem 'activerecord-session_store'
