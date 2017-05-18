@@ -24,9 +24,9 @@
 						Nouvel article
 					%a.navbar-brand{href: "/utilisateurs/new"}
 						Nouvel utilisateur
-					= form_for(:sessions, multipart: true, html: {class: "navbar_form navbar-right"}) do |f|
-						= f.email_field :email, placeholder: "Votre email"
-						= f.password_field :password, placeholder: "Votre mot de passe"
+					= bootstrap_form_for(:sessions, multipart: true, html: {class: "navbar_form navbar-right"}) do |f|
+						= f.email_field :email, placeholder: "Votre email", hide_label: true
+						= f.password_field :password, placeholder: "Votre mot de passe", hide_label: true
 						= f.submit "Connexion"
 
 		.container
