@@ -8,7 +8,7 @@ class UtilisateursController < ApplicationController
 	end
 
 	def create
-		@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone))
+		@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone, :avatar))
 		session[:current_user_id] = @utilisateur.id
 
 		redirect_to @utilisateur
@@ -23,10 +23,17 @@ class UtilisateursController < ApplicationController
 
 	def update
 		@utilisateur = Utilisateur.find(params[:id])
-		if @utilisateur.update_attributes(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone))
+		if @utilisateur.update_attributes(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone, :avatar))
 			redirect_to @utilisateur
 		else
 			render :edit
 		end
+	end
+
+	def sign_in
+		@utilisateur = Utilisateur.where(params.require(:utilisateur).permit(:email)).first
+		session[:current_user_id] = @utilisateur.id
+
+		redirect_to @utilisateur
 	end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-	resources :utilisateurs
+	resources :utilisateurs do
+	  collection do
+	  	post :sign_in
+	  end
+	end
 	resources :articles
 
 	# get 'articles/show'

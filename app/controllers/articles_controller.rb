@@ -12,7 +12,16 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		@article = Article.create(params.require(:article).permit(:titre, :prix, :description))
+		@article = Article.new(params.require(:article).permit(:titre, :prix, :description))
+		@article.utilisateur =  Utilisateur.find session[:current_user_id]
+		if @article.save
+			params[:article][:images].each do |i|
+				@article.images.create file: i
+			end
+		end
+		# params.require(:article)permit(:images).each do |i|
+		# 	article.images.create file: i
+		# end
 
 		redirect_to @article
 	end

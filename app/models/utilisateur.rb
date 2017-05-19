@@ -1,5 +1,5 @@
 class Utilisateur < ApplicationRecord
-	validates_presence_of :nom, :prenom, :promotion
+	validates_presence_of :nom, :prenom, :email
 	has_many :articles
 
 	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
