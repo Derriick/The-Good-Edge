@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
-		if session[:utilisateur_id] != @article.utilisateur_id
+		if session[:current_user_id] != @article.utilisateur_id
 			redirect_to(articles_path, notice: "Vous n'êtes pas autorisés à modifier cet article")
 		end
 	end

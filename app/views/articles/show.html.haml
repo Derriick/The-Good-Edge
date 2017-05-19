@@ -5,5 +5,5 @@
 %p crée par l'utilisateur #{@article.utilisateur_id}
 %p
 	= @article.images.each do |image|
-		= image_tag image
+		= image_tag image.file
 	end
