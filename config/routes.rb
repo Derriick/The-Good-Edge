@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :utilisateurs
 	resources :utilisateurs do
 	  collection do
 	  	post :sign_in

@@ -4,7 +4,6 @@ class CreateUtilisateurs < ActiveRecord::Migration[5.1]
       t.string :nom
       t.string :prenom
       t.integer :promotion
-      t.string :email
       t.string :telephone
 
       t.timestamps
