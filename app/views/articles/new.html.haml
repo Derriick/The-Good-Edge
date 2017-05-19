@@ -1,24 +1,23 @@
-%h1 Nouvel article
-%p Page de création d'un nouvel article
+%h1 Créer une annonce
 
-%p= #{@article.utilisateur_id = Utilisateur.find_by_id(session[:current_user_id])}
+- #{@article.utilisateur_id = Utilisateur.find_by_id(session[:current_user_id])}
 
 = bootstrap_form_for(@article, multipart: true) do |f|
 	%h3 Création d'annonce
 	.row
 		.col-md-6.col-xs-12
-			= f.text_field :titre, label: "Titre", placeholder: "Nom de l'article"
-			= f.number_field :prix, label: "Prix"
-			%label Image
+			= f.text_field :titre, label: "Titre", placeholder: "Nom de l'article", required: true
+			= f.number_field :prix, label: "Prix", content: "0", required: true
+			%label Images
 			.input-group
 				%span.input-group-btn
 					%span.btn.btn-primary.btn-file
 						Choisir un fichier
-						= f.file_field :images, multiple: true, hide_label: true
-				%input.form-control{:readonly => "readonly", :type => "text", :placeholder => "Image de l'article"}
+						= f.file_field :images, multiple: true, hide_label: true, required: true
+				%input.form-control{:readonly => "readonly", :type => "text", :placeholder => "Images de l'article"}
 			%br
 		.col-md-6.col-xs-12
-			= f.text_area :description, label: "Description", size: "60x6", placeholder: "Description de l'article"
+			= f.text_area :description, label: "Description", size: "60x6", placeholder: "Description de l'article", required: true
 		%p.text-center
 			= f.submit "Créer l'article"
 
