@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
 	def index
 		@articles = Article.all
 	end
@@ -27,14 +28,15 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		if session[:utilisateur_id] != @article.utilisateur.id
-			redirect_to(utilisateurs_path, notice: "Vous n'êtes pas autorisés à modifier ce profil")
+		@article = Article.find(params[:id])
+		if session[:utilisateur_id] != @article.utilisateur_id
+			redirect_to(articles_path, notice: "Vous n'êtes pas autorisés à modifier cet article")
 		end
 	end
 
 	def update
 		@article = Article.find(params[:id])
-		if @article.update_attributes(params.require(:article).permit(:titre, :prix, :description))
+		if @article.update_attributes(params.require(:article).permit(:titre, :prix, :description, :utilisateur_id))
 			redirect_to @article
 		else
 			render :edit

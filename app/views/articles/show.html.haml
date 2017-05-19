@@ -1,9 +1,8 @@
-%h1 @article.titre
-%p Affichage de l'article
+%h1= @article.titre
+%h3= @article.description
+%p Prix de l'article : #{@article.prix}
 
-%h2= @article.titre
-%p= @article.description
-%p= @article.prix
+%p crée par l'utilisateur #{@article.utilisateur_id}
 %p
 	= @article.images.each do |image|
 		= image_tag image
