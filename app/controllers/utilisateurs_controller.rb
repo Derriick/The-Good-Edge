@@ -1,4 +1,8 @@
 class UtilisateursController < ApplicationController
+	def index
+		redirect_to new_utilisateur_path
+	end
+
 	def show
 		@utilisateur = Utilisateur.find(params[:id])
 	end
