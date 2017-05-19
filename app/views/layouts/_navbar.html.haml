@@ -11,10 +11,10 @@
 			%a.navbar-brand{href: new_utilisateur_path}
 				Nouvel utilisateur
 			.row.navbar_form.navbar-right.form-inline{style: "margin-top: 8px; margin-right: 5px;"}
-				- if user_signed_in?
-					%a.btn.btn-danger{href: edit_user_registration_path}
+				- if alert
+					%a.btn.btn-info{href: "/utilisateurs/edit"}
 						Modifier mes infos
-					%a.btn.btn-danger{href: destroy_user_session_path}
+					%a.btn.btn-danger{href: "/utilisateur/destroy"}
 						Se déconnecter
 				- else
 					= bootstrap_form_for(Utilisateur.new, url: sign_in_utilisateurs_path, multipart: true, html: {class: "navbar_form navbar-right form-inline"}) do |f|
