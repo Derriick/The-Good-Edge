@@ -44,5 +44,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
+		# @article = Article.find(params[:id])
+		# a faire dans show ? 
 	end
 end

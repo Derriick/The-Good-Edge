@@ -40,4 +40,6 @@ class UtilisateursController < ApplicationController
 
 		redirect_to @utilisateur
 	end
+	# Si il y a un destroy, penser a faire : Article.where(utilisateur_id: params[:id]).destroy_all
+	# Actuellement le destrooy est fait par devise mais ça plante mdr
 end
