@@ -3,7 +3,7 @@ class Utilisateur < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	validates_presence_of :nom, :prenom, :email
+	validates_presence_of :nom, :prenom
 	has_many :articles
 
 	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
