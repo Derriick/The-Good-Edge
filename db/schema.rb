@@ -37,10 +37,6 @@ ActiveRecord::Schema.define(version: 20170519103139) do
   end
 
   create_table "utilisateurs", force: :cascade do |t|
-    t.string "nom"
-    t.string "prenom"
-    t.integer "promotion"
-    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
@@ -49,6 +45,10 @@ ActiveRecord::Schema.define(version: 20170519103139) do
     t.datetime "avatar_updated_at"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nom", default: "", null: false
+    t.string "prenom", default: "", null: false
+    t.integer "promotion"
+    t.string "telephone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

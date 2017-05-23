@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-	# devise_for :utilisateurs, controllers: {
-	# 	sessions: 'utilisateurs/sessions'
-	# }
-	devise_for :utilisateurs
+	devise_for :utilisateurs, controllers: {
+		registrations: 'utilisateurs/registrations'
+	}
 	resources :utilisateurs do
 		collection do
 			post :sign_in

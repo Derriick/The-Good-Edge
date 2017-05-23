@@ -3,6 +3,4 @@
 %p Mail: #{@utilisateur.email}
 %p Téléphone: #{@utilisateur.telephone}
 %p
-	= image_tag @utilisateur.avatar
-
-= link_to "Déconnexion",  destroy_utilisateur_session_path, :method => :delete
+	= image_tag @utilisateur.avatar 
