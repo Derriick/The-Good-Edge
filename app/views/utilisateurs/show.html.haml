@@ -6,5 +6,5 @@
 			%h1 #{@utilisateur.prenom} #{@utilisateur.nom}
 			%h3 Promotion : #{@utilisateur.promotion}
 			%h3 Adresse mail : #{@utilisateur.email}
-			- if @utilisateur.telephone != nil
+			- if @utilisateur.telephone != ""
 				%h3 Téléphone : #{@utilisateur.telephone}
