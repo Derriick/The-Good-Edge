@@ -5,6 +5,6 @@
 		%h2
 			= link_to article.titre, article_path(article.id)
 			- if article.archive
-				(archivée)
+				(annonce archivée)
 		- if article.images.first
 			= image_tag article.images.first.file

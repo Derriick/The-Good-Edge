@@ -3,7 +3,7 @@
 %h1
 	= @article.titre
 	- if @article.archive == true
-		(archivée)
+		(annonce archivée)
 	- if auteur == current_utilisateur
 		= link_to "Modifier l'annonce", edit_article_path, class: "btn btn-info"
 %h3 Prix de l'article : #{@article.prix}

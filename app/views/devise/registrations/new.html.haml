@@ -29,6 +29,6 @@
 		.col-md-6.col-xs-12
 			= f.password_field :password_confirmation, label: "Confirmer le mot de passe", autocomplete: "off", required: true
 			%br
-	%p.text-center
+	.row.text-center
 		= f.submit "Créer le compte", class: "btn btn-info"
 / = render "devise/shared/links"
