@@ -1,16 +1,12 @@
 %h1 Toutes les annonces
-
 %p Il y a actuellement #{@articles.count} articles
 
-- if utilisateur_signed_in?
-	%p Vous etes l'utilisateur #{current_utilisateur.nom}
-
-
 - @articles.each do |article|
-	- if utilisateur_signed_in?
-		%h2 #{link_to article.titre, article_path(article.id)}
-	- else
-		%h2
-			= article.titre
-	- if article.images.first
-		= image_tag article.images.first.file
+	.col-md-6.col-xs-12
+		- if utilisateur_signed_in?
+			%h2 #{link_to article.titre, article_path(article.id)}
+		- else
+			%h2
+				= article.titre
+		- if article.images.first
+			= image_tag article.images.first.file

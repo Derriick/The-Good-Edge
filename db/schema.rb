@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170519103139) do
     t.string "titre"
     t.string "description"
     t.integer "prix"
+    t.boolean "archive", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "utilisateur_id"

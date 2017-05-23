@@ -12,14 +12,12 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
 	%body
+		= render "layouts/navbar"
 		- if notice
 			%p.alert.alert-success
 				= notice
-
 		- if alert
 			%p.alert.alert-danger
 				= alert
-		= render "layouts/navbar"
 		.container
 			= yield
-

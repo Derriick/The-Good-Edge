@@ -1,29 +1,20 @@
 Rails.application.routes.draw do
+
+	root "articles#index"
+
 	devise_for :utilisateurs, controllers: {
 		registrations: 'utilisateurs/registrations'
 	}
+
 	resources :utilisateurs do
 		collection do
 			post :sign_in
 		end
 	end
-	resources :articles
 
-	# get 'articles/show'
-
-	# get 'articles/index'
-
-	# get 'articles/new'
-
-	# get 'articles/edit'
-
-	# get 'articles/destroy'
-
-	# get 'utilisateurs/show'
-
-	# get 'utilisateurs/new'
-
-	# get 'utilisateurs/edit'
-
-	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	resources :articles do
+		collection do
+			get :mesarticles
+		end
+	end
 end

@@ -1,8 +1,16 @@
-%h1= @article.titre
-%h3= @article.description
-%p Prix de l'article : #{@article.prix}
+- auteur = Utilisateur.find(@article.utilisateur_id)
 
-%p crée par l'utilisateur #{link_to Utilisateur.find_by_id(@article.utilisateur_id).nom, utilisateur_path(@article.utilisateur_id)}
+%h1
+	= @article.titre
+	- if @article.archive == true
+		(archivée)
+	- if auteur == current_utilisateur
+		= link_to "Modifier l'annonce", edit_article_path, class: "btn btn-info"
+%h3 Prix de l'article : #{@article.prix}
+%p= @article.description
+
 %p
 	- @article.images.each do |image|
 		= image_tag image.file
+		
+%p Crée par l'utilisateur #{link_to auteur.prenom + " " + auteur.nom, utilisateur_path(@article.utilisateur_id)}

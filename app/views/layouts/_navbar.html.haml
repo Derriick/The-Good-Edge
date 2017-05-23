@@ -1,20 +1,17 @@
 %nav.navbar.navbar-default
 	.container-fluid
 		.navbar-header
-			%a.navbar-brand{href: "/"}
-				The Good Edge
+			=link_to "The Good Edge", root_path, class: "navbar-brand"
 		.navbar-collapse.collapse
+			=link_to "Toutes les annonces", articles_path, class: "navbar-brand"
 			- if utilisateur_signed_in?
-				%a.navbar-brand{href: articles_path}
-					Articles
-				%a.navbar-brand{href: new_article_path}
-					Nouvel article
+				=link_to "Mes annonces", mesarticles_articles_path, class: "navbar-brand"
+				=link_to "Créer une annonce", new_article_path, class: "navbar-brand"
 				.row.navbar_form.navbar-right.form-inline{style: "margin-top: 8px; margin-right: 5px;"}
-					= link_to "Modifier mes infos", edit_utilisateur_registration_path, class: "btn btn-info"
+					= link_to "Voir mon profil", utilisateur_path(current_utilisateur), class: "btn btn-default"
+					= link_to "Modifier mes infos", edit_utilisateur_registration_path, class: "btn btn-default"
 					= link_to "Se déconnecter", destroy_utilisateur_session_path, class: "btn btn-danger", method: :delete
 			- else
-				%a.navbar-brand{href: articles_path}
-					Articles
 				.row.navbar_form.navbar-right.form-inline{style: "margin-top: 8px; margin-right: 5px;"}
 					= bootstrap_form_for(Utilisateur.new, url: sign_in_utilisateurs_path, multipart: true, html: {class: "navbar_form navbar-right form-inline"}) do |f|
 						= f.email_field :email, placeholder: "Votre email", hide_label: true, required: true

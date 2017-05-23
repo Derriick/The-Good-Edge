@@ -4,7 +4,11 @@ class UtilisateursController < ApplicationController
 	# before_action :authenticate_user!, except: [:home, :about, :contact]
 
 	def index
-		redirect_to new_utilisateur_path
+		if utilisateur_signed_in?
+			redirect_to edit_utilisateur_registration_path
+		else
+			redirect_to new_utilisateur_registration_path
+		end
 	end
 
 	def show
@@ -20,7 +24,12 @@ class UtilisateursController < ApplicationController
 	end
 
 	def create
-		@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone, :avatar))
+		if params[:avatar]
+			@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone, :avatar))
+		else
+			@utilisateur = Utilisateur.create(params.require(:utilisateur).permit(:nom, :prenom, :promotion, :email, :telephone))
+		end
+
 		session[:current_user_id] = @utilisateur.id
 
 		redirect_to @utilisateur
@@ -50,8 +59,8 @@ class UtilisateursController < ApplicationController
 	end
 
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:nom, :prenom])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:nom, :prenom])
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:nom, :prenom, :promotion, :email, :telephone, :avatar])
+		devise_parameter_sanitizer.permit(:account_update, keys: [:nom, :prenom, :promotion, :email, :telephone, :avatar])
 	end
 
 	# Si il y a un destroy, penser a faire : Article.where(utilisateur_id: params[:id]).destroy_all

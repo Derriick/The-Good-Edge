@@ -18,6 +18,8 @@
 			%br
 		.col-md-6.col-xs-12
 			= f.text_area :description, label: "Description", size: "60x6", placeholder: "Description de l'article", required: true
-		%p.text-center
-			= f.submit "Créer l'article"
+		.col-md-6.col-xs-12
+			= f.check_box :archive, label: "Annonce archivée"
+	.row.text-center
+		= f.submit "Créer l'annonce", class: "btn btn-info"
 
