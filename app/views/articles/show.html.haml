@@ -4,6 +4,5 @@
 
 %p crée par l'utilisateur #{link_to Utilisateur.find_by_id(@article.utilisateur_id).nom, utilisateur_path(@article.utilisateur_id)}
 %p
-	= @article.images.each do |image|
+	- @article.images.each do |image|
 		= image_tag image.file
-	end

@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 	def edit
 		@article = Article.find(params[:id])
 		if current_utilisateur.id != @article.utilisateur_id
-			redirect_to(articles_path, notice: "Vous n'êtes pas autorisés à modifier cet article")
+			redirect_to(articles_path, alert: "Vous n'êtes pas autorisés à modifier cet article")
 		end
 	end
 
