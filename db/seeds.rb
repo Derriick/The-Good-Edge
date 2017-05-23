@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Utilisateur.create({ nom: 'Lo Monaco', prenom: 'Luke', email: 'damien-lo@hotmail.fr', password: 'scoledge', promotion: 2019, telephone: '123', avatar: File.new("#{Rails.root}/public/system/exemples/avatar1.jpg") })
+Utilisateur.create({ nom: 'Lo Monaco', prenom: 'Damien', email: 'damien-lo@hotmail.fr', password: 'scoledge', promotion: 2019, telephone: '123', avatar: File.new("#{Rails.root}/public/system/exemples/avatar1.jpg") })
 Utilisateur.create({ nom: 'Koebelin', prenom: 'Pierre', email: 'derriick.ensiie@yahoo.com', password: 'azerty', promotion: 2017, telephone: '0623862376', avatar: File.new("#{Rails.root}/public/system/exemples/avatar2.png") })
 
 Article.create({ titre: 'Chaise', description: 'Objet permettant de rester assis', prix: 14, utilisateur_id: 1 })
