@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 		articles_path
 	end
 
-	def after_account_update_path_for(resource)
+	def after_update_path_for(resource)
 		articles_path
 	end
 
