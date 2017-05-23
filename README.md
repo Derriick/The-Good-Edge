@@ -1,17 +1,3 @@
-Critères d'évaluation
-1. Code fonctionnel (code source + documentation permettent de faire tourner l'application)
-2. Respect du cahier des charges
-3. Respect des design patterns MVC et ORM
-4. Utilisation d'une base de données
-5. Utilisation des idiomes Ruby et Rails
-6. Utilisation du Javascript
-7. Esthétisme du site
-8. Performances
-9. Sécurité
-10. Déploiement
-11. Tests unitaires
-
-
 ##Installation et lancement
 - le site a été développé avec la version 2.4.1 de Ruby et 5.1.1 de Rails
 - pour que le site fonctionne, il faudra créer la base de donnée: `sudo ­i ­u postgres` suivi de `createuser ­­interactive ­P`.<br>
@@ -23,6 +9,7 @@ Pour utiliser votre propre base de données, il suffit de changer les champs use
 - vous pouvez créer des articles d'exemple en faisant `bundle exec rake db:seed`.
 - enfin, lancer le serveur: `bundle exec rails s`.<br>
 Le serveur se lancera sur localhost:3000
+
 
 
 ##Sujet choisi: Le Bon Coin de l'ENSIIE
