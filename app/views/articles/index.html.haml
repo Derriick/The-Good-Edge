@@ -4,9 +4,8 @@
 - @articles.each do |article|
 	.col-md-6.col-xs-12
 		- if utilisateur_signed_in?
-			%h2 #{link_to article.titre, article_path(article.id)}
+			%h2 #{link_to article.titre, article_path(article.id)} (#{article.prix}€)
 		- else
-			%h2
-				= article.titre
+			%h2 #{article.titre} (#{article.prix}€)
 		- if article.images.first
 			= image_tag article.images.first.file
