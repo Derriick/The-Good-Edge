@@ -30,4 +30,5 @@ Le serveur se lancera sur localhost:3000
 ####Les images sont directement visibles sur la page de l'annonce.
 - Un membre peut signaler une annonce comme abusive
 - Un email est envoyé aux administrateurs lorsqu'un membre signale une annonce comme abusive
-- Un email récapitulatif des petites annonces du moment est envoyé chaque semaine à tous les membres
+- Un email récapitulatif des petites annonces du moment est envoyé chaque semaine à tous les membres<br>
+Il est également impossible de changer les images des articles par d'autres via le formulaire
