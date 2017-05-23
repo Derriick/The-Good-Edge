@@ -6,6 +6,6 @@
 		- if utilisateur_signed_in?
 			%h2 #{link_to article.titre, article_path(article.id)} (#{article.prix}€)
 		- else
-			%h2 #{article.titre} (#{article.prix}€)
+			%h2 #{article.titre}
 		- if article.images.first
 			= image_tag article.images.first.file
