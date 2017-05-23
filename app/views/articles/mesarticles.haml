@@ -1,0 +1,10 @@
+%h1 Mes annonces
+
+- @articles.each do |article|
+	.col-md-6.col-xs-12
+		%h2
+			= link_to article.titre, article_path(article.id)
+			- if article.archive
+				(annonce archivée)
+		- if article.images.first
+			= image_tag article.images.first.file

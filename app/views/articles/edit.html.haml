@@ -16,5 +16,13 @@
 			%br
 		.col-md-6.col-xs-12
 			= f.text_area :description, label: "Description", size: "60x6", placeholder: "Description de l'article", content: @article.description, required: true
-		%p.text-center
-			= f.submit "Créer l'article"
+		.col-md-6.col-xs-12
+			- if @article.archive
+				= f.check_box :archive, label: "Annonce archivée", checked: "checked"
+			- else
+				= f.check_box :archive, label: "Annonce archivée", checked: "unchecked"
+	.row.text-center
+		= f.submit "Modifier l'annonce", class: "btn btn-info"
+%br
+.row.text-center
+	= button_to "Supprimer l'annonce", @article, class: "btn btn-danger", data: { confirm: "Êtes vous sûr de vouloir supprimer votre annonce ?\nCette action est irréversible..." }, method: :delete

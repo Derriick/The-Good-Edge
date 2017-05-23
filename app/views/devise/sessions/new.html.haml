@@ -1,0 +1,15 @@
+%h2 Se connecter
+
+= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+	= devise_error_messages!
+	.row
+		.col-md-6.col-xs-12
+			= f.email_field :email, label: "Email", placeholder: "mail@example.com", autofocus: true, required: true
+		.col-md-6.col-xs-12
+			= f.password_field :password, label: "Mot de passe", autocomplete: "off", autorequired: true
+		%br
+	.row.text-center
+		- if devise_mapping.rememberable?
+			= f.check_box :remember_me, label: "Se souvenir de moi"
+		= f.submit "Se connecter", class: "btn btn-info"
+/ = render "devise/shared/links"

@@ -1,9 +1,10 @@
-%h1 Utilisateurs#show
-%p Find me in app/views/utilisateurs/show.html.haml
-
-%h2 #{@utilisateur.nom} #{@utilisateur.prenom}
-%p Promotion #{@utilisateur.promotion}
-%p Mail: #{@utilisateur.email}
-%p Téléphone: #{@utilisateur.telephone}
-%p
-	= image_tag @utilisateur.avatar
+%table
+	%tr
+		%td
+			= image_tag @utilisateur.avatar, style: "margin-right: 50px;"
+		%td
+			%h1 #{@utilisateur.prenom} #{@utilisateur.nom}
+			%h3 Promotion : #{@utilisateur.promotion}
+			%h3 Adresse mail : #{@utilisateur.email}
+			- if @utilisateur.telephone != nil
+				%h3 Téléphone : #{@utilisateur.telephone}

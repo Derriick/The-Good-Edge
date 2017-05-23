@@ -1,0 +1,39 @@
+%h1 Modifier le compte
+
+= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+	= devise_error_messages!
+	%h3 Informations personnelles
+	.row
+		.col-md-6.col-xs-12
+			= f.text_field :nom, label: "Nom", placeholder: "Nom", content: @utilisateur.nom, autofocus: true, required: true
+		.col-md-6.col-xs-12
+			= f.text_field :prenom, label: "Prénom", placeholder: "Prénom", content: @utilisateur.prenom, autofocus: true, required: true
+		.col-md-6.col-xs-12
+			= f.email_field :email, label: "Email", placeholder: "mail@example.com", content: @utilisateur.email, autofocus: true, required: true
+		.col-md-6.col-xs-12
+			= f.number_field :promotion, label: "Promotion", placeholder: "2017", content: @utilisateur.promotion, autofocus: true
+		.col-md-6.col-xs-12
+			= f.text_field :telephone, label: "Téléphone", type: "tel", content: @utilisateur.telephone, autofocus: true
+		.col-md-6.col-xs-12
+			%label Avatar
+			.input-group
+				%span.input-group-btn
+					%span.btn.btn-primary.btn-file
+						Choisir un fichier
+						= f.file_field :avatar, hide_label: true
+				%input.form-control{:readonly => "readonly", :type => "text", :placeholder => "Image de profil"}
+	%h3 Sécurité
+	.row
+		.col-md-6.col-xs-12
+			= f.password_field :current_password, label: "Mot de passe actuel (à indiquer)", autocomplete: "off", required: true
+		.col-md-m.col-xs-12
+		.col-md-6.col-xs-12
+			= f.password_field :password, label: "Nouveau mot de passe", autocomplete: "off"
+		.col-md-6.col-xs-12
+			= f.password_field :password_confirmation, label: "Confirmer le nouveau mot de passe", autocomplete: "off"
+			%br
+	.row.text-center
+		= f.submit "Confirmer les modifications", class: "btn btn-warning"
+%h3 Supprimer mon compte
+%p
+	= button_to "Supprimer le compte", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Êtes vous sûr de vouloir supprimer votre compte ?\nCette action est irréversible...\n\nVos annonces seront également supprimées" }, method: :delete

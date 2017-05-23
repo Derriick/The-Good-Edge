@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519083606) do
+ActiveRecord::Schema.define(version: 20170519103139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170519083606) do
     t.string "titre"
     t.string "description"
     t.integer "prix"
+    t.boolean "archive", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "utilisateur_id"
@@ -37,17 +38,28 @@ ActiveRecord::Schema.define(version: 20170519083606) do
   end
 
   create_table "utilisateurs", force: :cascade do |t|
-    t.string "nom"
-    t.string "prenom"
-    t.integer "promotion"
-    t.string "email"
-    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nom", default: "", null: false
+    t.string "prenom", default: "", null: false
+    t.integer "promotion"
+    t.string "telephone"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.index ["email"], name: "index_utilisateurs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_utilisateurs_on_reset_password_token", unique: true
   end
 
   add_foreign_key "articles", "utilisateurs"
