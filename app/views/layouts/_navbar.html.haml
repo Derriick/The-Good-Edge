@@ -8,8 +8,6 @@
 				Articles
 			%a.navbar-brand{href: new_article_path}
 				Nouvel article
-			%a.navbar-brand{href: "/utilisateurs/sign_up"}
-				Nouvel utilisateur
 			.row.navbar_form.navbar-right.form-inline{style: "margin-top: 8px; margin-right: 5px;"}
 				- if utilisateur_signed_in?
 					= link_to "Modifier mes infos", edit_utilisateur_registration_path, class: "btn btn-info"
@@ -19,4 +17,4 @@
 						= f.email_field :email, placeholder: "Votre email", hide_label: true, required: true
 						= f.password_field :password, placeholder: "Votre mot de passe", hide_label: true, required: true
 						= f.submit "Connexion"
-						= link_to "	Créer un compte", new_utilisateur_path, class: "btn btn-info"
+						= link_to "	Créer un compte", new_utilisateur_registration_path, class: "btn btn-info"

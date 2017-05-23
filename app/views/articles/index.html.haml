@@ -1,9 +1,14 @@
-%h1 Articles#index
-%p Find me in app/views/articles/index.haml
+%h1 Toutes les annonces
 
 %p Il y a actuellement #{@articles.count} articles
 
 %p Vous etes l'utilisateur #{session[:current_user_id]}
 
 - @articles.each do |article|
-	%h2 #{link_to article.titre, article_path(article.id)}
+	- if utilisateur_signed_in?
+		%h2 #{link_to article.titre, article_path(article.id)}
+	- else
+		%h2
+			= article.titre
+	- if article.images.first
+		= image_tag article.images.first
