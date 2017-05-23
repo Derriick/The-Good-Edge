@@ -4,7 +4,11 @@ class UtilisateursController < ApplicationController
 	end
 
 	def show
-		@utilisateur = Utilisateur.find(params[:id])
+		if utilisateur_signed_in?
+			@utilisateur = Utilisateur.find(params[:id])
+		else
+			redirect_to "/articles"
+		end
 	end
 
 	def new

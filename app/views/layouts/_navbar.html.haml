@@ -8,18 +8,15 @@
 				Articles
 			%a.navbar-brand{href: new_article_path}
 				Nouvel article
-			%a.navbar-brand{href: new_utilisateur_path}
+			%a.navbar-brand{href: "/utilisateurs/sign_up"}
 				Nouvel utilisateur
 			.row.navbar_form.navbar-right.form-inline{style: "margin-top: 8px; margin-right: 5px;"}
-				- if alert
-					%a.btn.btn-info{href: "/utilisateurs/edit"}
-						Modifier mes infos
-					%a.btn.btn-danger{href: "/utilisateur/destroy"}
-						Se déconnecter
+				- if utilisateur_signed_in?
+					= link_to "Modifier mes infos", edit_utilisateur_registration_path, class: "btn btn-info"
+					= link_to "Se déconnecter", destroy_utilisateur_session_path, class: "btn btn-danger", method: :delete
 				- else
 					= bootstrap_form_for(Utilisateur.new, url: sign_in_utilisateurs_path, multipart: true, html: {class: "navbar_form navbar-right form-inline"}) do |f|
 						= f.email_field :email, placeholder: "Votre email", hide_label: true, required: true
 						= f.password_field :password, placeholder: "Votre mot de passe", hide_label: true, required: true
 						= f.submit "Connexion"
-						%a.btn.btn-info{href: new_utilisateur_path}
-							Créer un compte
+						= link_to "	Créer un compte", new_utilisateur_path, class: "btn btn-info"
