@@ -11,8 +11,8 @@ class ArticlesController < ApplicationController
 	def show
 		if utilisateur_signed_in?
 			@article = Article.find(params[:id])
-			if @article.archive
-				redirect_to(articles_path, alert: "Cette annonce ne vous appartient pas et est archivée")
+			if @article.archive and @article.utilisateur_id != current_utilisateur.id
+				redirect_to(articles_path, alert: "Cette annonce est archivée et ne vous appartient pas")
 			end
 		else
 			redirect_to(articles_path, alert: "Vous devez être connecté pour consulter les annonces")
