@@ -22,12 +22,12 @@ Pour utiliser votre propre base de données, il suffit de changer les champs use
 - il faut ensuite générer la base de données: `bundle exec rake db:create db:migrate` (ou bien `bundle exec rake db:drop db:create db:migrate` pour regéérer la base de données)
 - vous pouvez créer des articles d'exemple en faisant `bundle exec rake db:seed`.
 - enfin, lancer le serveur: `bundle exec rails s`.<br>
-Le serveur se lancera sur localhost:3000.
+Le serveur se lancera sur localhost:3000
 
 
 ##Sujet choisi: Le Bon Coin de l'ENSIIE
 
-#Les fonctionnalités demandées qui ont été implémentées:
+###Les fonctionnalités demandées qui ont été implémentées:
 - Un visiteur peut s'authentifier sur le site
 - Si le visiteur ne s'enregistre pas, il ne peut consulter que les titres et la photo de couverture de la petite annonce
 - Un utilisateur inscrit est caractérisé par un nom, un prénom, une promotion, un email, un numéro de téléphone et éventuellement un avatar
@@ -38,9 +38,9 @@ Le serveur se lancera sur localhost:3000.
 - Un membre peut supprimer une petite annonce qui lui appartient
 - Un membre peut archiver une petite annonce qui lui appartient
 
-#Les fonctionnalités qui n'ont pas été implémentées:
+###Les fonctionnalités qui n'ont pas été implémentées:
 - La page d'une petite annonce comprend une visionneuse de photos<br>
-Les images sont directement visibles sur la page de l'annonce.
+####Les images sont directement visibles sur la page de l'annonce.
 - Un membre peut signaler une annonce comme abusive
 - Un email est envoyé aux administrateurs lorsqu'un membre signale une annonce comme abusive
 - Un email récapitulatif des petites annonces du moment est envoyé chaque semaine à tous les membres
