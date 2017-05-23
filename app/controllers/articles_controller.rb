@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(params.require(:article).permit(:titre, :prix, :description))
-		@article.utilisateur =  Utilisateur.find session[:current_user_id]
+		@article.utilisateur = current_utilisateur
 		if @article.save
 			params[:article][:images].each do |i|
 				@article.images.create file: i
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
-		if session[:current_user_id] != @article.utilisateur_id
+		if current_utilisateur.id != @article.utilisateur_id
 			redirect_to(articles_path, notice: "Vous n'êtes pas autorisés à modifier cet article")
 		end
 	end

@@ -55,7 +55,7 @@ class UtilisateursController < ApplicationController
 	end
 
 	def after_sign_in_path_for(resource)
-		articles_path
+		current_user_path
 	end
 
 	# Si il y a un destroy, penser a faire : Article.where(utilisateur_id: params[:id]).destroy_all

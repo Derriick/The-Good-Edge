@@ -2,7 +2,9 @@
 
 %p Il y a actuellement #{@articles.count} articles
 
-%p Vous etes l'utilisateur #{session[:current_user_id]}
+- if utilisateur_signed_in?
+	%p Vous etes l'utilisateur #{current_utilisateur.nom}
+
 
 - @articles.each do |article|
 	- if utilisateur_signed_in?

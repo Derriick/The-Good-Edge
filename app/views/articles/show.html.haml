@@ -2,7 +2,7 @@
 %h3= @article.description
 %p Prix de l'article : #{@article.prix}
 
-%p crée par l'utilisateur #{@article.utilisateur_id}
+%p crée par l'utilisateur #{link_to Utilisateur.find_by_id(@article.utilisateur_id).nom, utilisateur_path(@article.utilisateur_id)}
 %p
 	= @article.images.each do |image|
 		= image_tag image.file
